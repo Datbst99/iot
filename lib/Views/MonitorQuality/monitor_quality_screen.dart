@@ -90,12 +90,13 @@ class _MonitorQualityScreenState extends State<MonitorQualityScreen> {
                                   },
                                   child: Container(
                                     padding: const EdgeInsets.only(bottom: 10, top: 10, right: 5),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
                                         IconStatusComponent(status: monitorQualityController.monitorQualities[i].status!),
                                         const SizedBox(
-                                          width: 5,
+                                          width: 3,
                                         ),
                                         Text(
                                           monitorQualityController.monitorQualities[i].quality_criteria!,
@@ -109,8 +110,9 @@ class _MonitorQualityScreenState extends State<MonitorQualityScreen> {
                                 ),
                               ),
                               _buildCell(monitorQualityController.monitorQualities[i].update_time!, textAlign: TextAlign.center),
-                              _buildCell(monitorQualityController.monitorQualities[i].unit!, textAlign: TextAlign.center),
-                              _buildCell(monitorQualityController.monitorQualities[i].measured_value!, textAlign: TextAlign.center),
+                              _buildCell(monitorQualityController.monitorQualities[i].ntu!, textAlign: TextAlign.center),
+                              _buildCell(monitorQualityController.monitorQualities[i].ph!, textAlign: TextAlign.center),
+                              _buildCell(monitorQualityController.monitorQualities[i].mgl!, textAlign: TextAlign.center),
                             ],
                           ),
                     ],
@@ -181,10 +183,11 @@ class _MonitorQualityScreenState extends State<MonitorQualityScreen> {
 
 List<Widget> _buildColumns() {
   return [
-    _buildCell('Chỉ tiêu chất lượng', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
+    _buildCell('Điểm đo', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
     _buildCell('Thời gian', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
-    _buildCell('Đơn vị', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
-    _buildCell('Giá trị đo', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
+    _buildCell('Độ đục', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
+    _buildCell('Độ PH', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
+    _buildCell('Clo dư', textAlign: TextAlign.center, fontWeight: FontWeight.bold),
   ];
 }
 

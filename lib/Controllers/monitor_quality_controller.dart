@@ -58,7 +58,7 @@ class MonitorQualityController with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getMonitorQualityDetail(String? date, {bool loading = false}) async {
+  Future<void> getMonitorQualityDetail(String id, String? date, {bool loading = false}) async {
 
     try {
 
@@ -73,7 +73,7 @@ class MonitorQualityController with ChangeNotifier {
       }
 
       Map<String, String> headers = {'Content-Type': 'application/json', 'Authorization' : 'Bearer $globalToken' };
-      String params = "?date=$date";
+      String params = "?measuring_point=$id&date=$date";
 
       final response = await http.get(GenerateApi.getPath('monitorQualityDetail', params), headers: headers).timeout(const Duration(seconds: 30));
 

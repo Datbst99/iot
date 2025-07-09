@@ -39,7 +39,8 @@ class RouteApp{
       case RouteApp.monitorQuality:
         return MaterialPageRoute(builder: (_) => MonitorQualityScreen());
       case RouteApp.monitorQualityDetail:
-        return MaterialPageRoute(builder: (_) => MonitorQualityDetailScreen());
+        final id = settings.arguments as int;
+        return MaterialPageRoute(builder: (_) => MonitorQualityDetailScreen(id: id,));
       case RouteApp.monthlyOutput:
         return MaterialPageRoute(builder: (_) => MonthlyOutputScreen());
       default:

@@ -1,19 +1,21 @@
 class MonitorQualityModel {
-  String id;
+  int id;
   String? quality_criteria;
+  String? ph;
+  String? ntu;
+  String? mgl;
   String? update_time;
   String? status;
-  String? unit;
-  String? measured_value;
 
 //<editor-fold desc="Data Methods">
   MonitorQualityModel({
     required this.id,
     this.quality_criteria,
+    this.ph,
+    this.ntu,
+    this.mgl,
     this.update_time,
     this.status,
-    this.unit,
-    this.measured_value,
   });
 
   @override
@@ -23,41 +25,45 @@ class MonitorQualityModel {
           runtimeType == other.runtimeType &&
           id == other.id &&
           quality_criteria == other.quality_criteria &&
+          ph == other.ph &&
+          ntu == other.ntu &&
+          mgl == other.mgl &&
           update_time == other.update_time &&
-          status == other.status &&
-          unit == other.unit &&
-          measured_value == other.measured_value);
+          status == other.status);
 
   @override
-  int get hashCode => id.hashCode ^ quality_criteria.hashCode ^ update_time.hashCode ^ status.hashCode ^ unit.hashCode ^ measured_value.hashCode;
+  int get hashCode => id.hashCode ^ quality_criteria.hashCode ^ ph.hashCode ^ ntu.hashCode ^ mgl.hashCode ^ update_time.hashCode ^ status.hashCode;
 
   @override
   String toString() {
     return 'MonitorQualityModel{' +
         ' id: $id,' +
         ' quality_criteria: $quality_criteria,' +
+        ' ph: $ph,' +
+        ' ntu: $ntu,' +
+        ' mgl: $mgl,' +
         ' update_time: $update_time,' +
         ' status: $status,' +
-        ' unit: $unit,' +
-        ' measured_value: $measured_value,' +
         '}';
   }
 
   MonitorQualityModel copyWith({
-    String? id,
+    int? id,
     String? quality_criteria,
+    String? ph,
+    String? ntu,
+    String? mgl,
     String? update_time,
     String? status,
-    String? unit,
-    String? measured_value,
   }) {
     return MonitorQualityModel(
       id: id ?? this.id,
       quality_criteria: quality_criteria ?? this.quality_criteria,
+      ph: ph ?? this.ph,
+      ntu: ntu ?? this.ntu,
+      mgl: mgl ?? this.mgl,
       update_time: update_time ?? this.update_time,
       status: status ?? this.status,
-      unit: unit ?? this.unit,
-      measured_value: measured_value ?? this.measured_value,
     );
   }
 
@@ -65,21 +71,23 @@ class MonitorQualityModel {
     return {
       'id': this.id,
       'quality_criteria': this.quality_criteria,
+      'ph': this.ph,
+      'ntu': this.ntu,
+      'mgl': this.mgl,
       'update_time': this.update_time,
       'status': this.status,
-      'unit': this.unit,
-      'measured_value': this.measured_value,
     };
   }
 
   factory MonitorQualityModel.fromMap(Map<String, dynamic> map) {
     return MonitorQualityModel(
-      id: map['id'] as String,
+      id: map['id'] as int,
       quality_criteria: map['quality_criteria'] as String,
+      ph: map['ph'] as String,
+      ntu: map['ntu'] as String,
+      mgl: map['mgl'] as String,
       update_time: map['update_time'] as String,
       status: map['status'] as String,
-      unit: map['unit'] as String,
-      measured_value: map['measured_value'] as String,
     );
   }
 

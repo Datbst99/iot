@@ -12,7 +12,8 @@ import '../Components/shimmer_pressure_chart.dart';
 import '../Components/show_error_component.dart';
 
 class MonitorQualityDetailScreen extends StatefulWidget {
-  const MonitorQualityDetailScreen({super.key});
+  final int id;
+  const MonitorQualityDetailScreen({super.key, required this.id});
 
   @override
   State<MonitorQualityDetailScreen> createState() => _MonitorQualityDetailScreenState();
@@ -24,7 +25,7 @@ class _MonitorQualityDetailScreenState extends State<MonitorQualityDetailScreen>
 
   @override
   void initState() {
-    monitorQualityController.getMonitorQualityDetail(date);
+    monitorQualityController.getMonitorQualityDetail(widget.id.toString(), date);
     super.initState();
   }
 
@@ -41,8 +42,8 @@ class _MonitorQualityDetailScreenState extends State<MonitorQualityDetailScreen>
 
   void _resetCallApi() {
     monitorQualityController.cancelTimer();
-    monitorQualityController.getMonitorQualityDetail(date, loading: true);
-    monitorQualityController.loopGetData(() => monitorQualityController.getMonitorQualityDetail(date));
+    monitorQualityController.getMonitorQualityDetail(widget.id.toString(), date, loading: true);
+    monitorQualityController.loopGetData(() => monitorQualityController.getMonitorQualityDetail(widget.id.toString(), date));
   }
 
   @override
