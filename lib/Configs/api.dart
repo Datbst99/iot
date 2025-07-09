@@ -1,7 +1,7 @@
 
 class GenerateApi {
 
-  static String domain = "http://192.168.56.1/";
+  static String domain = "https://iotsmart.vn/";
   static String login = "api/app/login";
   static String checkLogin = "api/app/check-login";
   static String pressure = 'api/app/monitor-pressure';
